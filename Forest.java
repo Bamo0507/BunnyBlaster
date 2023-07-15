@@ -21,7 +21,7 @@ public class Forest extends World
     
     public void inicio() {
         Rabbit conejo = new Rabbit();
-        addObject(conejo, getWidth()/2, getHeight()-40);
+        addObject(conejo, getWidth()/2, getHeight()/2);
     }
     
     private void generarComida() {
