@@ -18,7 +18,7 @@ public class Rabbit extends Actor
         GreenfootImage img = new GreenfootImage("Rabbit.png");
         img.scale(img.getWidth() / 12, img.getHeight() / 12);
         setImage(img);
-        velocidad = 3;
+        velocidad = 4;
     }
     
     private void moverRabbit() {
