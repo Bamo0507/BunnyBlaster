@@ -14,6 +14,7 @@ public class Carrot extends Actor
      */
     private int velocidadx;
     private int velocidady;
+    private int vel;
     
     public void act(){
         setLocation(getX() + velocidadx, getY() + velocidady);
@@ -34,8 +35,9 @@ public class Carrot extends Actor
         }
         
     public void setVelocity(int vx, int vy) {
-        velocidadx = vx * 2;
-        velocidady = vy * 2;
+        vel = 3;
+        velocidadx = vx * vel;
+        velocidady = vy * vel;
     }
     
     public Carrot(){
