@@ -1,15 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class hamburguesa here.
+ * Write a description of class burguer here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class hamburguesa extends chatarra
+public class burguer extends Junkfood
 {
     /**
-     * Act - do whatever the hamburguesa wants to do. This method is called whenever
+     * Act - do whatever the burguer wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()

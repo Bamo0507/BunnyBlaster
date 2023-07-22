@@ -1,15 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class dona here.
+ * Write a description of class fries here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class dona extends chatarra
+public class fries extends Junkfood
 {
     /**
-     * Act - do whatever the dona wants to do. This method is called whenever
+     * Act - do whatever the fries wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()

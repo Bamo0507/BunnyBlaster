@@ -17,7 +17,7 @@ public class Comida extends Actor
         // Add your action code here.
     }
     
-    public Comida() {
+    protected Comida() {
         GreenfootImage img = new GreenfootImage("Comida.png");
         img.scale(img.getWidth() / 12, img.getHeight() / 12);
         setImage(img);
