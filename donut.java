@@ -8,12 +8,22 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class donut extends Junkfood
 {
-    /**
-     * Act - do whatever the donut wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    
+    public donut(){
+        velocidad=3;
+    }
+    
     public void act()
     {
-        // Add your action code here.
+        super.act();
+    }
+    @Override
+    protected void comprobarBordes(){
+        if (getX()==getWorld().getWidth()-1|| getX()==0){
+            getImage().mirrorHorizontally();
+            velocidad=-velocidad;
+        }
     }
 }
+
+

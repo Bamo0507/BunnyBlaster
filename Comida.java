@@ -8,18 +8,31 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Comida extends Actor
 {
-    /**
-     * Act - do whatever the Comida wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    protected int velocidad=5;
+    private double dx=0;
+    private int y=0;
+    private int amplitud=10;
+    
     public void act()
     {
-        // Add your action code here.
+        mover();
+        comprobarBordes();
     }
     
-    protected Comida() {
-        GreenfootImage img = new GreenfootImage("Comida.png");
-        img.scale(img.getWidth() / 12, img.getHeight() / 12);
-        setImage(img);
+    private void mover(){
+        movimientoSenodal();
+        setLocation(getX()+velocidad, getY()+y);
+        
     }
-}
+    
+    protected void comprobarBordes(){
+        if (getX()==getWorld().getWidth()-1){
+            setLocation(0,getY());
+        }
+    }
+    private void movimientoSenodal(){
+        dx=dx+0.1;
+        double dy=Math.sin(dx);
+        y=(int) (dy*amplitud);
+    }}
+

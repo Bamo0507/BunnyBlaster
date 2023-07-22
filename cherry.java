@@ -1,15 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class burguer here.
+ * Write a description of class cherry here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class burguer extends Junkfood
+public class cherry extends healthy
 {
-    
-    public burguer(){
+    public cherry(){
         velocidad=3;
     }
     

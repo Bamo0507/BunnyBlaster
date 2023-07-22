@@ -8,12 +8,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Junkfood extends Comida
 {
-    /**
-     * Act - do whatever the Junkfood wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    
     public void act()
     {
-        // Add your action code here.
+         super.act();
+    }
+    
+    @Override
+    protected void comprobarBordes(){
+        if (getX()==getWorld().getWidth()-1){
+            int nuevaY=Greenfoot.getRandomNumber(getWorld().getHeight());
+            setLocation(0,getY());
+        }
     }
 }
