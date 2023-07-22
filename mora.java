@@ -10,6 +10,10 @@ public class mora extends healthy
 {
     public mora(){
         velocidad=3;
+        GreenfootImage img = new GreenfootImage("Imagen3.png");
+        img.scale(img.getWidth() / 2, img.getHeight() / 2);
+        setImage(img);
+
     }
     
     public void act()

@@ -11,6 +11,9 @@ public class donut extends Junkfood
     
     public donut(){
         velocidad=3;
+        GreenfootImage img = new GreenfootImage("donut.png");
+        img.scale(img.getWidth() / 4, img.getHeight() / 4);
+        setImage(img);
     }
     
     public void act()

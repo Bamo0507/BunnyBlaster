@@ -10,6 +10,10 @@ public class cherry extends healthy
 {
     public cherry(){
         velocidad=3;
+        GreenfootImage img = new GreenfootImage("cherry.png");
+        img.scale(img.getWidth() / 1, img.getHeight() / 1);
+        setImage(img);
+
     }
     
     public void act()

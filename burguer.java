@@ -11,6 +11,9 @@ public class burguer extends Junkfood
     
     public burguer(){
         velocidad=3;
+        GreenfootImage img = new GreenfootImage("hambur.png");
+        img.scale(img.getWidth() / 4, img.getHeight() / 4);
+        setImage(img);
     }
     
     public void act()
@@ -24,4 +27,5 @@ public class burguer extends Junkfood
             velocidad=-velocidad;
         }
     }
-}
+    }
+

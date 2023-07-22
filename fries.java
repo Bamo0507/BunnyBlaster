@@ -10,6 +10,9 @@ public class fries extends Junkfood
 {
     public fries(){
         velocidad=3;
+        GreenfootImage img = new GreenfootImage("fries.png");
+        img.scale(img.getWidth() / 4, img.getHeight() / 4);
+        setImage(img);
     }
     
     public void act()
