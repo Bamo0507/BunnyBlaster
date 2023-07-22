@@ -35,7 +35,7 @@ public class Carrot extends Actor
         }
         
     public void setVelocity(int vx, int vy) {
-        vel = 3;
+        vel = 2;
         velocidadx = vx * vel;
         velocidady = vy * vel;
     }
