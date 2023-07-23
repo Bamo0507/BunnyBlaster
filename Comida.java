@@ -34,5 +34,6 @@ public class Comida extends Actor
         dx=dx+0.1;
         double dy=Math.sin(dx);
         y=(int) (dy*amplitud);
-    }}
+    }
+}
 

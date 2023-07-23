@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.Random;
 
 /**
  * Write a description of class Carrot here.
@@ -15,6 +16,7 @@ public class Carrot extends Actor
     private int velocidadx;
     private int velocidady;
     private int vel;
+    private Comida[] comidas = {new burguer(), new donut(), new fries(), new apple(), new cherry(), new mora()};
     
     public void act(){
         setLocation(getX() + velocidadx, getY() + velocidady);
@@ -26,15 +28,23 @@ public class Carrot extends Actor
             eliminar(); // Eliminar el objeto
         }
         else if(f != null){
-            //getWorld().removeObject(f);
+            getWorld().removeObject(f);
             removeTouching(Comida.class);
+            Forest mundo = (Forest) getWorld();
             eliminar();
+            Random random = new Random();
+            int randomIndex = random.nextInt(comidas.length);
+            
+            Comida nuevaComida = comidas[randomIndex];
+            
+            int x = Greenfoot.getRandomNumber(mundo.getWidth());
+            int y = Greenfoot.getRandomNumber(mundo.getHeight());
+            mundo.addObject(nuevaComida, x, y);
             // AQUÍ SE COLOCARÁ EL SONIDO CUANDO SE DESTRUYA ALGO 
             
         }
-        }
+    }
      
-        
     public void setVelocity(int vx, int vy) {
         vel = 2;
         velocidadx = vx * vel;
