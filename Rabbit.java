@@ -53,6 +53,8 @@ public class Rabbit extends Actor {
             spacePresionado = false;
         }
         
+        Forest mundo = (Forest) getWorld();
+        
         if (Greenfoot.isKeyDown("space") && !spacePresionado && (direccionPresionada || spaceUpLeftPresionados)) {
             // Obtener la dirección actual del conejo
             int direccionX = 0;
@@ -71,10 +73,13 @@ public class Rabbit extends Actor {
             }
             
             // Crear un objeto "Carrot" y establecer su velocidad y dirección de movimiento
+            
             Carrot zanahoria = new Carrot();
             getWorld().addObject(zanahoria, getX(), getY());
             zanahoria.setVelocity(direccionX * velocidad, direccionY * velocidad);
             spacePresionado = true;
+                        
+            
             }
             direccionPresionada = false;// Reiniciar la variable para que no se dispare más de una zanahoria
         }

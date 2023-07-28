@@ -21,7 +21,6 @@ public class Carrot extends Actor
     public void act(){
         setLocation(getX() + velocidadx, getY() + velocidady);
         
-        //SE DEBERÁ CAMBIAR MÁS ADELANTE PARA QUE SOLO ELIMINE COMIDA DE LA SUBCLASE CHATARRA, DE MOMENTO ASÍ ESTÁ BIEN
         Comida f = (Comida)getOneIntersectingObject(Comida.class);
 
         if (getX() <= 0 || getX() >= getWorld().getWidth() - 1 || getY() <= 0 || getY() >= getWorld().getHeight() - 1) {
@@ -30,8 +29,13 @@ public class Carrot extends Actor
         else if(f != null){
             getWorld().removeObject(f);
             removeTouching(Comida.class);
+                   
             Forest mundo = (Forest) getWorld();
-            eliminar();
+            mundo.conteoPuntos += 50;
+            
+            eliminar();    
+            
+            
             Random random = new Random();
             int randomIndex = random.nextInt(comidas.length);
             

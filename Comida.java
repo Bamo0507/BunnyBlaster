@@ -11,12 +11,14 @@ public class Comida extends Actor
     protected int velocidad=5;
     private double dx=0;
     private int y=0;
-    private int amplitud=10;
+    private int amplitud=3;
     
     public void act()
     {
         mover();
         comprobarBordes();
+        
+        
     }
     
     private void mover(){
@@ -30,10 +32,15 @@ public class Comida extends Actor
             setLocation(0,getY());
         }
     }
+    
     private void movimientoSenodal(){
         dx=dx+0.1;
         double dy=Math.sin(dx);
         y=(int) (dy*amplitud);
     }
+    
+      
+    
+    
 }
 

@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.awt.Color;
 
 /**
  * Write a description of class Forest here.
@@ -8,7 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Forest extends World
 {
-
+    public static int conteoPuntos = 0;
+    private int x = 0;
     /**
      * Constructor for objects of class Forest.
      * 
@@ -17,8 +19,13 @@ public class Forest extends World
     {    
         super(640, 360, 1); 
         inicio();
+        
     }
-
+    
+    public void act(){
+        showText("PUNTEO:" + conteoPuntos, 55, 25);
+    }
+    
     public void inicio() {
         Rabbit conejo = new Rabbit();
         addObject(conejo, getWidth()/2, getHeight()/2);
@@ -73,5 +80,6 @@ public class Forest extends World
             addObject(comidas6[i], comidaX, comidaY);
         }
     }
-
+    
+    
 }
