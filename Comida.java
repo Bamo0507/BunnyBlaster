@@ -8,13 +8,28 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Comida extends Actor
 {
-    protected int velocidad=5;
+    protected int velocidad=6;
     private double dx=0;
     private int y=0;
     private int amplitud=3;
+    Forest mundo = (Forest) getWorld();
+
     
     public void act()
     {
+        if (mundo.conteoPuntos == 2500){
+                amplitud = 4;
+            }
+        
+        else if (mundo.conteoPuntos == 5000){
+            amplitud = 5;
+        }
+        
+        else if (mundo.conteoPuntos == 7500){
+            amplitud = 6;
+        }
+        
+        
         mover();
         comprobarBordes();
         
@@ -22,6 +37,10 @@ public class Comida extends Actor
     }
     
     private void mover(){
+        
+        
+        
+        
         movimientoSenodal();
         setLocation(getX()+velocidad, getY()+y);
         

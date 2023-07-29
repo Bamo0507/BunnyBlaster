@@ -9,9 +9,12 @@ import java.awt.Color;
  */
 public class Forest extends World
 {
-    public static int conteoPuntos = 0;
+    public static int conteoPuntos;
     private int x = 0;
     private boolean aumentoDeVelocidadAdquirido = false;
+    burguer hamb = new burguer();
+    fries fri = new fries();
+    donut don = new donut();
 
     /**
      * Constructor for objects of class Forest.
@@ -21,11 +24,12 @@ public class Forest extends World
     {    
         super(640, 360, 1); 
         inicio();
+        conteoPuntos = 0;
+
         
     }
     
     public void act(){
-        
         showText("PUNTEO:" + conteoPuntos, 75, 25);
         
     }
@@ -83,6 +87,43 @@ public class Forest extends World
             int comidaY = Greenfoot.getRandomNumber(getHeight());
             addObject(comidas6[i], comidaX, comidaY);
         }
+        
+        burguer[] comidas7 = new burguer[rand];
+        
+        if (conteoPuntos % 2500 == 50){
+            for(int i=0; i<comidas1.length; i++){
+                comidas7[i] = new burguer();
+                int comidaX = Greenfoot.getRandomNumber(getWidth());
+                int comidaY = Greenfoot.getRandomNumber(getHeight());
+                addObject(comidas7[i], comidaX, comidaY);
+            }
+        }
+        
+        donut[] comidas8 = new donut[rand];
+        
+        if(conteoPuntos % 5000 == 50){
+            for(int i=0; i<comidas2.length; i++){
+                comidas8[i] = new donut();
+                int comidaX = Greenfoot.getRandomNumber(getWidth());
+                int comidaY = Greenfoot.getRandomNumber(getHeight());
+                addObject(comidas8[i], comidaX, comidaY);
+            }
+        }
+        
+        
+        fries[] comidas9 = new fries[rand];
+                
+        if (conteoPuntos % 7500 == 50){
+            for(int i=0; i<comidas9.length; i++){
+                comidas9[i] = new fries();
+                int comidaX = Greenfoot.getRandomNumber(getWidth());
+                int comidaY = Greenfoot.getRandomNumber(getHeight());
+                addObject(comidas9[i], comidaX, comidaY);
+            }     
+        }
+        
+        
+        
     }
         
     public static int getconteoPuntos(){

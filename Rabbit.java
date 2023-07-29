@@ -71,7 +71,7 @@ public class Rabbit extends Actor {
             }
             
             
-            if (mundo.conteoPuntos % 2000 == 0 && mundo.conteoPuntos <= 10000){
+            if (mundo.conteoPuntos % 2250 == 50 && mundo.conteoPuntos <= 10000){
                 velocidad++;
             }
             
