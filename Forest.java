@@ -11,6 +11,8 @@ public class Forest extends World
 {
     public static int conteoPuntos = 0;
     private int x = 0;
+    private boolean aumentoDeVelocidadAdquirido = false;
+
     /**
      * Constructor for objects of class Forest.
      * 
@@ -23,14 +25,16 @@ public class Forest extends World
     }
     
     public void act(){
-        showText("PUNTEO:" + conteoPuntos, 55, 25);
+        
+        showText("PUNTEO:" + conteoPuntos, 75, 25);
+        
     }
     
     public void inicio() {
         Rabbit conejo = new Rabbit();
         addObject(conejo, getWidth()/2, getHeight()/2);
-        int minimo = 2;
-        int maximo = 4;
+        int minimo = 4;
+        int maximo = 5;
         int rand = Greenfoot.getRandomNumber(maximo - minimo +1) + minimo;
         burguer[] comidas1 = new burguer[rand];
         for(int i=0; i<comidas1.length; i++){
@@ -79,6 +83,10 @@ public class Forest extends World
             int comidaY = Greenfoot.getRandomNumber(getHeight());
             addObject(comidas6[i], comidaX, comidaY);
         }
+    }
+        
+    public static int getconteoPuntos(){
+        return conteoPuntos;
     }
     
     

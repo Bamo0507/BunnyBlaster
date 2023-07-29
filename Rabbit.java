@@ -7,25 +7,30 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class Rabbit extends Actor {
-    private int velocidad;
+    private int velocidad = 2;
     private boolean direccionPresionada;
     private boolean spacePresionado;
     private boolean spaceUpLeftPresionados;
+    private int conteo = Forest.getconteoPuntos();
+    
     
     public void act() {
         moverRabbit();
+        
+        
     }
     
     public Rabbit() {
         GreenfootImage img = new GreenfootImage("Rabbit.png");
         img.scale(img.getWidth() / 12, img.getHeight() / 12);
         setImage(img);
-        velocidad = 3;
         direccionPresionada = false;
         spacePresionado = false;
     }
     
     private void moverRabbit() {
+        
+        Forest mundo = (Forest) getWorld();
         if (Greenfoot.isKeyDown("up")) {
             setLocation(getX(), getY() - velocidad);
             direccionPresionada = true;
@@ -42,18 +47,11 @@ public class Rabbit extends Actor {
             setLocation(getX() + velocidad, getY());
             direccionPresionada = true;
         }
-        
-        if (Greenfoot.isKeyDown("space") && Greenfoot.isKeyDown("up") && Greenfoot.isKeyDown("left")) {
-            spaceUpLeftPresionados = true;
-        } else {
-            spaceUpLeftPresionados = false;
-        }
-        
+                
         if(!Greenfoot.isKeyDown("space")){
             spacePresionado = false;
         }
         
-        Forest mundo = (Forest) getWorld();
         
         if (Greenfoot.isKeyDown("space") && !spacePresionado && (direccionPresionada || spaceUpLeftPresionados)) {
             // Obtener la dirección actual del conejo
@@ -72,16 +70,25 @@ public class Rabbit extends Actor {
                 direccionX = 1;
             }
             
-            // Crear un objeto "Carrot" y establecer su velocidad y dirección de movimiento
+            
+            if (mundo.conteoPuntos % 2000 == 0 && mundo.conteoPuntos <= 10000){
+                velocidad++;
+            }
+            
+
             
             Carrot zanahoria = new Carrot();
             getWorld().addObject(zanahoria, getX(), getY());
             zanahoria.setVelocity(direccionX * velocidad, direccionY * velocidad);
-            spacePresionado = true;
-                        
+            spacePresionado = true;    
+            
+            
             
             }
             direccionPresionada = false;// Reiniciar la variable para que no se dispare más de una zanahoria
         }
+        
+    
+        
 }
 

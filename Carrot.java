@@ -15,10 +15,25 @@ public class Carrot extends Actor
      */
     private int velocidadx;
     private int velocidady;
-    private int vel;
+    public int vel = 2;
+    private int x;
+    private int y;
+    
+    
+    
+    
     private Comida[] comidas = {new burguer(), new donut(), new fries(), new apple(), new cherry(), new mora()};
     
     public void act(){
+        GreenfootImage img = new GreenfootImage("Carrot.png");
+        img.scale(img.getWidth() / 12, img.getHeight() / 12);
+        img.rotate(-180);
+        setImage(img);
+        
+        
+        
+        
+        
         setLocation(getX() + velocidadx, getY() + velocidady);
         
         Comida f = (Comida)getOneIntersectingObject(Comida.class);
@@ -29,30 +44,31 @@ public class Carrot extends Actor
         else if(f != null){
             getWorld().removeObject(f);
             removeTouching(Comida.class);
-                   
-            Forest mundo = (Forest) getWorld();
-            mundo.conteoPuntos += 50;
-            
-            eliminar();    
-            
-            
+            Forest mundo = (Forest) getWorld();       
+            mundo.conteoPuntos += 50;         
+                      
             Random random = new Random();
+            eliminar(); 
             int randomIndex = random.nextInt(comidas.length);
             
             Comida nuevaComida = comidas[randomIndex];
             
-            int x = Greenfoot.getRandomNumber(mundo.getWidth());
-            int y = Greenfoot.getRandomNumber(mundo.getHeight());
+            
+            x = Greenfoot.getRandomNumber(mundo.getWidth());
+            y = Greenfoot.getRandomNumber(mundo.getHeight());
             mundo.addObject(nuevaComida, x, y);
             // AQUÍ SE COLOCARÁ EL SONIDO CUANDO SE DESTRUYA ALGO 
             
         }
+        
+        
+        
     }
      
     public void setVelocity(int vx, int vy) {
-        vel = 2;
         velocidadx = vx * vel;
         velocidady = vy * vel;
+                        
     }
     
     public Carrot(){
