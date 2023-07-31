@@ -58,8 +58,12 @@ public class Comida extends Actor
         y=(int) (dy*amplitud);
     }
     
+
+}
+ 
+        
+    
       
     
     
-}
 

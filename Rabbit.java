@@ -12,6 +12,9 @@ public class Rabbit extends Actor {
     private boolean spacePresionado;
     private boolean spaceUpLeftPresionados;
     private int conteo = Forest.getconteoPuntos();
+    private int vidas;
+    private static final int LIMITE_VIDAS = 3;
+    private Vidas vidasDisplay;
     
     
     public void act() {
@@ -26,6 +29,31 @@ public class Rabbit extends Actor {
         setImage(img);
         direccionPresionada = false;
         spacePresionado = false;
+        
+        vidas = LIMITE_VIDAS; // El conejo comienza con el límite de vidas.
+        vidasDisplay = new Vidas(); // Inicializar el display de vidas.
+
+        // Colocar el objeto Vidas arriba en la pantalla (cerca de la coordenada Y 0).
+        int worldWidth = getWorld().getWidth();
+        int vidasX = worldWidth / 2; // Ajustar la coordenada X según sea necesario.
+        int vidasY = 20; // Aquí puedes ajustar la distancia desde la parte superior.
+
+        // Agregar vidasDisplay al mundo en las coordenadas especificadas.
+        getWorld().addObject(vidasDisplay, vidasX, vidasY);
+
+    }
+    public void disminuirVidas(){
+        vidas --; 
+        vidasDisplay.disminuirVidas();
+        if (vidas <= 0) {
+            gameOver(); // Llamar a la función que muestra el mensaje de Game Over.
+        }
+    }
+
+    private void gameOver() {
+        GreenfootImage gameOverImage = new GreenfootImage("Game Over", 48, Color.RED, null);
+        getWorld().getBackground().drawImage(gameOverImage, (getWorld().getWidth() - gameOverImage.getWidth()) / 2, getWorld().getHeight() / 2);
+        Greenfoot.stop(); // Detener el juego.
     }
     
     private void moverRabbit() {
@@ -88,7 +116,9 @@ public class Rabbit extends Actor {
             direccionPresionada = false;// Reiniciar la variable para que no se dispare más de una zanahoria
         }
         
-    
-        
 }
+   
+
+    
+
 

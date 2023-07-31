@@ -80,7 +80,7 @@ public class Carrot extends Actor
     
     private void eliminar(){
         getWorld().removeObject(this);
+
     }
-    
     
 }
