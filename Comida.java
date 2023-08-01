@@ -18,7 +18,7 @@ public class Comida extends Actor
     public void act()
     {
         if (mundo.conteoPuntos == 2500){
-                amplitud = 4;
+            amplitud = 4;
             }
         
         else if (mundo.conteoPuntos == 5000){
@@ -36,11 +36,7 @@ public class Comida extends Actor
         
     }
     
-    private void mover(){
-        
-        
-        
-        
+    private void mover(){  
         movimientoSenodal();
         setLocation(getX()+velocidad, getY()+y);
         

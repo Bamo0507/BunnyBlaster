@@ -1,5 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.Random;
+import greenfoot.GreenfootSound;
+
 
 /**
  * Write a description of class Carrot here.
@@ -29,7 +31,7 @@ public class Carrot extends Actor
         img.scale(img.getWidth() / 12, img.getHeight() / 12);
         img.rotate(-180);
         setImage(img);
-        
+        verificarChatarra();
         
         
         
@@ -83,4 +85,12 @@ public class Carrot extends Actor
 
     }
     
+    private void verificarChatarra(){
+        Actor junk = getOneIntersectingObject(Comida.class);
+        if (junk != null) {
+            World world = getWorld();
+            Forest forest = (Forest) world;
+            Greenfoot.playSound("crunch.wav");
+        }
+    }
 }

@@ -1,4 +1,8 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.GreenfootSound;
+import java.util.Random;
+
+
 
 /**
  * Write a description of class Rabbit here.
@@ -14,11 +18,14 @@ public class Rabbit extends Actor {
     private int conteo = Forest.getconteoPuntos();
     private int vidas;
     private static final int LIMITE_VIDAS = 3;
-    private Vidas vidasDisplay;
-    
+    public static int contJunk;
+    private Comida[] comidas = {new burguer(), new donut(), new fries(), new apple(), new cherry(), new mora()};
+    private int x;
+    private int y;
     
     public void act() {
         moverRabbit();
+        verificarSaludable();
         
         
     }
@@ -29,26 +36,12 @@ public class Rabbit extends Actor {
         setImage(img);
         direccionPresionada = false;
         spacePresionado = false;
+        contJunk = 0;
         
-        vidas = LIMITE_VIDAS; // El conejo comienza con el límite de vidas.
-        vidasDisplay = new Vidas(); // Inicializar el display de vidas.
-
-        // Colocar el objeto Vidas arriba en la pantalla (cerca de la coordenada Y 0).
-        int worldWidth = getWorld().getWidth();
-        int vidasX = worldWidth / 2; // Ajustar la coordenada X según sea necesario.
-        int vidasY = 20; // Aquí puedes ajustar la distancia desde la parte superior.
-
-        // Agregar vidasDisplay al mundo en las coordenadas especificadas.
-        getWorld().addObject(vidasDisplay, vidasX, vidasY);
+       
 
     }
-    public void disminuirVidas(){
-        vidas --; 
-        vidasDisplay.disminuirVidas();
-        if (vidas <= 0) {
-            gameOver(); // Llamar a la función que muestra el mensaje de Game Over.
-        }
-    }
+    
 
     private void gameOver() {
         GreenfootImage gameOverImage = new GreenfootImage("Game Over", 48, Color.RED, null);
@@ -116,6 +109,45 @@ public class Rabbit extends Actor {
             direccionPresionada = false;// Reiniciar la variable para que no se dispare más de una zanahoria
         }
         
+    private void verificarSaludable(){     
+        Actor junk = getOneIntersectingObject(Junkfood.class);
+        if (junk != null) {
+            contJunk++;
+            removeTouching(Junkfood.class);
+            World world = getWorld();
+            Forest mundo = (Forest) getWorld();     
+            Greenfoot.playSound("bad.wav");
+            
+            mundo.conteoPuntos -= 50; 
+            
+            Random random = new Random();
+            int randomIndex = random.nextInt(comidas.length);
+            Comida nuevaComida = comidas[randomIndex];           
+            x = Greenfoot.getRandomNumber(mundo.getWidth());
+            y = Greenfoot.getRandomNumber(mundo.getHeight());
+            mundo.addObject(nuevaComida, x, y);
+        }
+        
+        Comida f = (Comida)getOneIntersectingObject(Comida.class);
+        
+        Actor health = getOneIntersectingObject(healthy.class);
+        if (health != null) {
+            removeTouching(healthy.class);
+            World world = getWorld();
+            Forest mundo = (Forest) getWorld();     
+            Greenfoot.playSound("nice2.wav");
+            mundo.conteoPuntos += 50; 
+            Random random = new Random();
+            int randomIndex = random.nextInt(comidas.length);
+            
+            Comida nuevaComida = comidas[randomIndex];
+            
+            
+            x = Greenfoot.getRandomNumber(mundo.getWidth());
+            y = Greenfoot.getRandomNumber(mundo.getHeight());
+            mundo.addObject(nuevaComida, x, y);
+        }
+    }
 }
    
 
