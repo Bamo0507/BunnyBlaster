@@ -75,15 +75,15 @@ public class Forest extends World
             }     
         }
         
-        if (Rabbit.contJunk == 3){
+        if (Rabbit.contJunk == 6){
             removeObject(vida1);
         }
         
-        else if (Rabbit.contJunk == 6){
+        else if (Rabbit.contJunk == 12){
             removeObject(vida2);
         }
         
-        else if (Rabbit.contJunk == 9) {
+        else if (Rabbit.contJunk == 18) {
             removeObject(vida3);
             showText("El conejo se ha intoxicado!!", getWidth()/2, getHeight()/2);
             Greenfoot.stop();
